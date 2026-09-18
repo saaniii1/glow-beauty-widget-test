@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Glow Beauty Salon — AI receptionist and booking assistant demo">
+<title>Glow Beauty Salon | AI Receptionist Demo</title>
+<style>
+:root{--wine:#8e2d3b;--dark:#67202b;--cream:#fbf7f3;--soft:#f3e8e2;--ink:#2d2021;--muted:#766668;--white:#fff;--border:#eaded8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+.demo{background:var(--wine);color:#fff;text-align:center;padding:9px 12px;font-size:13px}
+header{position:sticky;top:0;z-index:10;background:#fbf7f3ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;gap:10px;align-items:center;font-weight:800}.mark{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--wine);color:#fff;font:22px Georgia}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+nav{display:flex;gap:24px;align-items:center;font-size:14px;color:#5e4e50}nav a:hover{color:var(--wine)}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;font-weight:750;border:1px solid var(--border);background:#fff;color:var(--wine)}.primary{background:var(--wine);border-color:var(--wine);color:#fff;box-shadow:0 10px 24px #8e2d3b2e}
+.hero{padding:78px 0}.grid{display:grid;grid-template-columns:1.06fr .94fr;gap:55px;align-items:center}.eyebrow{color:var(--wine);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.eyebrow:before{content:"";display:inline-block;width:27px;height:2px;background:var(--wine);vertical-align:middle;margin-right:8px}
+h1{font:600 clamp(46px,6vw,74px)/1.02 Georgia,serif;letter-spacing:-.04em;margin:16px 0 22px}h1 span{color:var(--wine)}.lead{font-size:18px;color:var(--muted);max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0}.ticks{display:flex;gap:18px;flex-wrap:wrap;color:#6f6061;font-size:13px}.ticks span:before{content:"✓";color:var(--wine);font-weight:900;margin-right:6px}
+.hero-card{background:#fff;border:1px solid var(--border);border-radius:30px;padding:14px;box-shadow:0 18px 50px #43262719;transform:rotate(1deg)}.hero-inner{min-height:430px;border-radius:23px;padding:28px;background:radial-gradient(circle at 85% 15%,#8e2d3b24,transparent 35%),linear-gradient(145deg,#f6ebe6,#fff);display:flex;flex-direction:column;justify-content:space-between}.salon{background:#ffffffc9;border:1px solid #fff;border-radius:20px;padding:25px}.logo{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:var(--wine);color:#fff;font:30px Georgia;margin-bottom:18px}.salon h2{font:38px/1.05 Georgia;margin:0 0 8px}.salon p,.mini p{color:var(--muted);margin:0}.mini{background:#fff;border:1px solid var(--border);border-radius:20px;padding:17px;box-shadow:0 12px 30px #3c232412}
+section{padding:80px 0}.white{background:#fff;border-block:1px solid var(--border)}.head{max-width:680px;margin-bottom:35px}.head h2{font:46px/1.1 Georgia,serif;margin:10px 0 12px}.head p{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card,.step,.feature{border:1px solid var(--border);border-radius:23px;padding:24px;background:#fffdfc}.icon{width:45px;height:45px;border-radius:14px;display:grid;place-items:center;background:var(--soft);color:var(--wine);font-size:20px;margin-bottom:16px}.card h3,.step h3{margin:0 0 7px}.card p,.step p{margin:0;color:var(--muted);font-size:14px}
+.ai{background:#f7eee9}.features{display:grid;gap:12px;margin-top:24px}.feature{display:flex;gap:12px}.check{width:25px;height:25px;flex:0 0 25px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-size:12px}.feature small{color:var(--muted)}
+.chat{background:#fff;border:1px solid var(--border);border-radius:28px;padding:16px;box-shadow:0 18px 50px #43262719}.chathead{background:var(--wine);color:#fff;border-radius:20px 20px 12px 12px;padding:18px}.online{font-size:12px;opacity:.85}.messages{padding:20px 8px 8px;display:grid;gap:12px}.bubble{max-width:86%;padding:12px 15px;border-radius:16px;font-size:14px}.bot{background:#f5ece8}.user{background:var(--wine);color:#fff;justify-self:end}.input{border:1px solid var(--border);border-radius:999px;padding:12px;color:#a09293;font-size:13px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.num{color:var(--wine);font:700 13px Georgia;margin-bottom:15px}
+.cta{padding-top:30px}.cta-box{background:var(--wine);color:#fff;border-radius:30px;padding:45px;display:flex;justify-content:space-between;gap:28px;align-items:center}.cta h2{font:42px/1.1 Georgia;margin:0 0 10px}.cta p{opacity:.86;max-width:650px}.cta .btn{background:#fff;border-color:#fff}
+footer{background:#24191a;color:#eee4e2;padding:40px 0}.foot{display:flex;justify-content:space-between;gap:25px}.foot small{color:#b8aaaa}
+@media(max-width:900px){nav{display:none}.grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.hero-card{max-width:650px;margin:auto}}
+@media(max-width:600px){.wrap{width:calc(100% - 28px)}section{padding:60px 0}.hero{padding:50px 0}.cards{grid-template-columns:1fr}h1{font-size:49px}.head h2{font-size:37px}.cta-box{display:block;padding:32px 24px}.cta h2{font-size:35px}.cta .btn{margin-top:18px}.foot{display:block}.foot div+div{margin-top:18px}}
+</style>
+</head>
+<body>
+<div class="demo">✦ AI Receptionist & Booking Assistant Demo — built for beauty salons</div>
+<header><div class="wrap nav">
+<a class="brand" href="#top"><span class="mark">G</span><span>Glow Beauty Salon<small>Beauty & Bridal Studio</small></span></a>
+<nav><a href="#services">Services</a><a href="#ai">AI Receptionist</a><a href="#how">How It Works</a><a href="#demo">Try the Assistant</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap grid"><div>
+<div class="eyebrow">A smarter salon experience</div>
+<h1>Beautiful service.<br><span>Helpful AI.</span></h1>
+<p class="lead">Welcome to the Glow Beauty Salon demo — a modern salon website with an AI receptionist that answers customer questions, explains services and prices, and collects booking requests.</p>
+<div class="actions"><a class="btn primary" href="#demo">💬 Try the AI Assistant</a><a class="btn" href="#services">View Services</a></div>
+<div class="ticks"><span>24/7 assistance</span><span>Booking lead capture</span><span>Website-ready widget</span></div>
+</div>
+<div class="hero-card"><div class="hero-inner"><div class="salon"><div class="logo">G</div><h2>Glow Beauty<br>Salon</h2><p>Hair • Skin • Nails • Bridal</p></div><div class="mini"><strong>✨ Meet your AI front desk</strong><p>Customers can ask about services, prices, opening hours and booking directly from your website.</p></div></div></div>
+</div></section>
+
+<section class="white" id="services"><div class="wrap"><div class="head"><div class="eyebrow">Our services</div><h2>Everything customers want to ask about.</h2><p>A clear service presentation helps visitors explore the salon before they book.</p></div>
+<div class="cards">
+<div class="card"><div class="icon">✂</div><h3>Hair Services</h3><p>Haircuts, styling, coloring, highlights, balayage, treatments and more.</p></div>
+<div class="card"><div class="icon">✦</div><h3>Facials & Skincare</h3><p>Classic, hydrating, glow, anti-aging and express facial options.</p></div>
+<div class="card"><div class="icon">♡</div><h3>Nail Services</h3><p>Manicures, pedicures, gel services, extensions and nail art.</p></div>
+<div class="card"><div class="icon">♔</div><h3>Bridal Packages</h3><p>Essential, Premium and Luxury bridal packages with consultation support.</p></div>
+</div></div></section>
+
+<section class="ai" id="ai"><div class="wrap grid"><div><div class="head"><div class="eyebrow">AI receptionist</div><h2>Your website can answer customers while you run the salon.</h2><p>The assistant handles common questions and turns interested visitors into qualified booking requests.</p></div>
+<div class="features">
+<div class="feature"><span class="check">✓</span><div><strong>Answers common questions</strong><br><small>Services, prices, hours, location and policies.</small></div></div>
+<div class="feature"><span class="check">✓</span><div><strong>Collects booking requests</strong><br><small>Name, contact details, service and preferred time.</small></div></div>
+<div class="feature"><span class="check">✓</span><div><strong>Supports bridal enquiries</strong><br><small>Wedding date, package and group information.</small></div></div>
+<div class="feature"><span class="check">✓</span><div><strong>Works directly on the website</strong><br><small>A floating chat button gives visitors instant access.</small></div></div>
+</div></div>
+<div class="chat" id="demo"><div class="chathead"><strong>Glow Beauty AI Concierge</strong><div class="online">● Online • Booking requests are provisional</div></div>
+<div class="messages"><div class="bubble bot">Hi! 👋 I'm Chloe, the Glow Beauty Salon AI concierge. How can I help you today?</div><div class="bubble user">What are your hair services?</div><div class="bubble bot">We offer haircuts, blow-dry, styling, color, highlights, balayage, keratin and hair-repair services. I can also share prices or help you send a booking request.</div><div class="bubble user">I'd like to book a haircut.</div><div class="bubble bot">Absolutely! I can collect your booking details. Your request is provisional until the salon confirms it by phone or WhatsApp.</div><div class="input">Try the live assistant using the 💬 button →</div></div></div>
+</div></section>
+
+<section id="how"><div class="wrap"><div class="head"><div class="eyebrow">How it works</div><h2>Simple for the salon. Easy for customers.</h2><p>This demo shows the workflow a real salon can use on its own website.</p></div>
+<div class="steps"><div class="step"><div class="num">01 — CUSTOMIZE</div><h3>Build the salon assistant</h3><p>Add services, prices, hours, policies, contact details, FAQs and the booking flow.</p></div><div class="step"><div class="num">02 — EMBED</div><h3>Add it to the website</h3><p>Place the assistant on a supported website using the chatbot widget.</p></div><div class="step"><div class="num">03 — CONNECT</div><h3>Turn visitors into enquiries</h3><p>Customers ask questions and submit booking requests while the salon handles final confirmation.</p></div></div></div></section>
+
+<section class="cta"><div class="wrap"><div class="cta-box"><div><h2>Want an AI receptionist for your salon?</h2><p>This Glow Beauty Salon site is a fictional demonstration of what a customized salon chatbot experience can look like.</p></div><a class="btn" href="#demo">Try the Demo Assistant →</a></div></div></section>
+</main>
+
+<footer><div class="wrap foot"><div><strong>Glow Beauty Salon</strong><br><small>Fictional demo website • AI receptionist & booking assistant</small></div><div><strong>AI chatbot demo</strong><br><small>Booking requests are provisional until confirmed by the salon.</small></div></div></footer>
+
+<script src="./widget.js" async></script>
+</body>
+</html>
